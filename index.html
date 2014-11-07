@@ -1,0 +1,138 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AmberZile</title>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<link rel="icon" type="image/png" href="favicon.png" />
+<link rel="stylesheet" type="text/css" href="css/default.css" />
+<link rel="stylesheet" type="text/css" href="css/component.css" />
+<script src="js/modernizr.custom.js"></script>
+<link rel="stylesheet" type="text/css" href="css/main.css">
+<script type="text/javascript" src="js/main.js"></script>
+</head>
+
+<body class="loaded">
+	<div id="bigwrapper">
+        <div id="loaderwrapper">
+            <div id="loader"></div>
+            <div class="loader-section section-left"></div>
+            <div class="loader-section section-right"></div>
+        </div>
+        
+        
+        <div class="main clearfix">
+			<div id="headerlogo"><img src=""></div>
+            <nav id="menu" class="nav">					
+				<ul>
+					<li>
+						<a href="#">
+							<span  class="icon">
+								<i aria-hidden="true" class="icon-home"></i>
+							</span>
+							<span>Home</span>
+						</a>
+					</li>
+					<li>
+						<a href="#">
+							<span class="icon"> 
+								<i aria-hidden="true" class="icon-services"></i>
+							</span>
+							<span>Services</span>
+						</a>
+					</li>
+					<li>
+						<a href="#">
+							<span class="icon">
+								<i aria-hidden="true" class="icon-portfolio"></i>
+							</span>
+							<span>Portfolio</span>
+						</a>
+					</li>
+					<li>
+						<a href="#">
+							<span class="icon">
+								<i aria-hidden="true" class="icon-blog"></i>
+							</span>
+							<span>Blog</span>
+						</a>
+					</li>
+					<li>
+						<a href="#">
+							<span class="icon">
+								<i aria-hidden="true" class="icon-team"></i>
+							</span>
+							<span>The team</span>
+						</a>
+					</li>
+					<li>
+						<a href="#">
+							<span class="icon">
+								<i aria-hidden="true" class="icon-contact"></i>
+							</span>
+							<span>Contact</span>
+						</a>
+					</li>
+				</ul>
+			</nav>
+		</div>
+        <div id="mainbody">
+            <div id="slider">
+                <div class="slidetext">
+                     <p id="sli">Website Development,<br>Application Development with<br><strong>OUTSTANDING RESULTS</strong></p>
+                     <hr>
+                    <h4>We are a Graphics Design Studio focused on Creative Solutions for your needs !!</h4>
+                </div>
+                <div class="slideimage">
+                    <img src="images/slideimg1.png">
+                </div>
+            </div>
+            <div id="ourwork">
+                <div id="ourworktext">
+                    <p id="owt1">We Build Brands with <strong><b>360° Solutions</b></strong></p>
+                    <p id="owt2">A full-service digital agency approach to grow your brand online</p>
+                </div>
+                <div class="work">
+                    <div><h4>JUST BEING CREATIVE</h4></div>
+                    <div><h4>JUST BEING CREATIVE</h4></div>
+                    <div><h4>JUST BEING CREATIVE</h4></div>
+                    <div><h4>JUST BEING CREATIVE</h4></div>
+                </div>
+            </div>
+        </div>
+		<script>
+			//  The function to change the class
+			var changeClass = function (r,className1,className2) {
+				var regex = new RegExp("(?:^|\\s+)" + className1 + "(?:\\s+|$)");
+				if( regex.test(r.className) ) {
+					r.className = r.className.replace(regex,' '+className2+' ');
+			    }
+			    else{
+					r.className = r.className.replace(new RegExp("(?:^|\\s+)" + className2 + "(?:\\s+|$)"),' '+className1+' ');
+			    }
+			    return r.className;
+			};	
+
+			//  Creating our button in JS for smaller screens
+			var menuElements = document.getElementById('menu');
+			menuElements.insertAdjacentHTML('afterBegin','<button type="button" id="menutoggle" class="navtoogle" aria-hidden="true"><i aria-hidden="true" class="icon-menu"> </i> Menu</button>');
+
+			//  Toggle the class on click to show / hide the menu
+			document.getElementById('menutoggle').onclick = function() {
+				changeClass(this, 'navtoogle active', 'navtoogle')
+			}
+
+			// http://tympanus.net/codrops/2013/05/08/responsive-retina-ready-menu/comment-page-2/#comment-438918
+			document.onclick = function(e) {
+				var mobileButton = document.getElementById('menutoggle'),
+					buttonStyle =  mobileButton.currentStyle ? mobileButton.currentStyle.display : getComputedStyle(mobileButton, null).display;
+
+				if(buttonStyle === 'block' && e.target !== mobileButton && new RegExp(' ' + 'active' + ' ').test(' ' + mobileButton.className + ' ')) {
+					changeClass(mobileButton, 'navtoogle active', 'navtoogle');
+				}
+			}
+		</script>
+    </div>
+</body>
+</html>
